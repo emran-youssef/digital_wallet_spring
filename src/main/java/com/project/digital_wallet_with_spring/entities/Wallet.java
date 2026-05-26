@@ -34,10 +34,10 @@ public class Wallet {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
     private Set<Transaction> sentTransactions = new HashSet<>();
 
-    @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
     private Set<Transaction> receivedTransactions = new HashSet<>();
 
     @OneToMany(mappedBy = "wallet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
