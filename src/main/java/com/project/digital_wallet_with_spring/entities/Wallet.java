@@ -43,4 +43,5 @@ public class Wallet {
     @OneToMany(mappedBy = "wallet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<TransactionHistory> history = new HashSet<>();
 
+
 }
