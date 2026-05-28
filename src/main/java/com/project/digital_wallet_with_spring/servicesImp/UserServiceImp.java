@@ -9,7 +9,7 @@ import com.project.digital_wallet_with_spring.exceptions.user.UserNotFoundExcept
 import com.project.digital_wallet_with_spring.mappers.UserMapper;
 import com.project.digital_wallet_with_spring.repositories.UserRepository;
 import com.project.digital_wallet_with_spring.repositories.WalletRepository;
-import com.project.digital_wallet_with_spring.serivces.UserService;
+import com.project.digital_wallet_with_spring.services.UserService;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

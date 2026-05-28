@@ -18,6 +18,14 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     List<Transaction> findBySender(Wallet sender);
     List<Transaction> findByReceiver(Wallet receiver);
 
+    @Query("""
+            SELECT t
+            FROM Transaction t
+            WHERE t.sender.id = :walletId OR t.receiver.id = :walletId
+            ORDER BY t.createdAt DESC
+            """)
+    List<Transaction> findByWalletId(@Param("walletId") Long walletId);
+
     List<Transaction> findByStatus(TransactionStatus status);
     List<Transaction> findByType(TransactionType type);
 

@@ -1,4 +1,4 @@
-package com.project.digital_wallet_with_spring.serivces;
+package com.project.digital_wallet_with_spring.services;
 
 import com.project.digital_wallet_with_spring.dtos.user.RegisterUserRequest;
 import com.project.digital_wallet_with_spring.dtos.user.UserResponseDto;

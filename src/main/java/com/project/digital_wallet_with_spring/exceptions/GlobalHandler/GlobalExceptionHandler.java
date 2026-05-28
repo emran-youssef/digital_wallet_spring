@@ -1,6 +1,8 @@
 package com.project.digital_wallet_with_spring.exceptions.GlobalHandler;
 
 import com.project.digital_wallet_with_spring.dtos.exception.ErrorResponse;
+import com.project.digital_wallet_with_spring.exceptions.transaction.SameWalletTransferException;
+import com.project.digital_wallet_with_spring.exceptions.transaction.TransactionNotFoundException;
 import com.project.digital_wallet_with_spring.exceptions.user.EmailAlreadyExistException;
 import com.project.digital_wallet_with_spring.exceptions.user.UserNotFoundException;
 import com.project.digital_wallet_with_spring.exceptions.wallet.InsufficientBalanceException;
@@ -12,7 +14,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import javax.naming.InsufficientResourcesException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -78,12 +79,48 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(InsufficientBalanceException.class)
-    public ResponseEntity<ErrorResponse> handleInsufficientBalance(InsufficientResourcesException ex){
+    public ResponseEntity<ErrorResponse> handleInsufficientBalance(InsufficientBalanceException ex){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 ErrorResponse.builder()
                         .timestamp(LocalDateTime.now())
                         .status(HttpStatus.BAD_REQUEST.value())
                         .error("Insufficient Balance")
+                        .message(ex.getMessage())
+                        .build()
+        );
+    }
+
+    @ExceptionHandler(SameWalletTransferException.class)
+    public ResponseEntity<ErrorResponse> handleSameWalletTransfer(SameWalletTransferException ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                ErrorResponse.builder()
+                        .timestamp(LocalDateTime.now())
+                        .status(HttpStatus.BAD_REQUEST.value())
+                        .error("Same wallet transfer")
+                        .message(ex.getMessage())
+                        .build()
+        );
+    }
+
+    @ExceptionHandler(TransactionNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleTransactionNotFound(TransactionNotFoundException ex){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                ErrorResponse.builder()
+                        .timestamp(LocalDateTime.now())
+                        .status(HttpStatus.NOT_FOUND.value())
+                        .error("Transaction not found")
+                        .message(ex.getMessage())
+                        .build()
+        );
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgument(IllegalArgumentException ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                ErrorResponse.builder()
+                        .timestamp(LocalDateTime.now())
+                        .status(HttpStatus.BAD_REQUEST.value())
+                        .error("Invalid request")
                         .message(ex.getMessage())
                         .build()
         );

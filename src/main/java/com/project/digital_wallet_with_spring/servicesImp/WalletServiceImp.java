@@ -7,7 +7,7 @@ import com.project.digital_wallet_with_spring.exceptions.wallet.InsufficientBala
 import com.project.digital_wallet_with_spring.exceptions.wallet.WalletNotFoundException;
 import com.project.digital_wallet_with_spring.mappers.WalletMapper;
 import com.project.digital_wallet_with_spring.repositories.WalletRepository;
-import com.project.digital_wallet_with_spring.serivces.WalletService;
+import com.project.digital_wallet_with_spring.services.WalletService;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,27 +30,27 @@ public class WalletServiceImp implements WalletService {
 
     @Override
     @Transactional
-    public WalletResponseDto deposit(AmountRequestDto request) {
+    public WalletResponseDto deposit(Long walletId, BigDecimal amount) {
 
-        var wallet = getWalletById(request.getWalletId());
+        var wallet = getWalletById(walletId);
 
-        wallet.setBalance(wallet.getBalance().add(request.getAmount()));
+        wallet.setBalance(wallet.getBalance().add(amount));
         wallet.setUpdatedAt(LocalDateTime.now());
         //later on we'll save the history
-        return walletMapper.toDto( walletRepository.save(wallet));
+        return walletMapper.toDto(walletRepository.save(wallet));
 
     }
 
     @Override
     @Transactional
-    public WalletResponseDto withdraw(AmountRequestDto request) {
+    public WalletResponseDto withdraw(Long walletId, BigDecimal amount) {
 
-        var wallet = getWalletById(request.getWalletId());
+        var wallet = getWalletById(walletId);
 
-        if(wallet.getBalance().compareTo(request.getAmount()) < 0)
+        if(wallet.getBalance().compareTo(amount) < 0)
             throw new InsufficientBalanceException();
 
-        wallet.setBalance(wallet.getBalance().subtract(request.getAmount()));
+        wallet.setBalance(wallet.getBalance().subtract(amount));
         wallet.setUpdatedAt(LocalDateTime.now());
         //later on we'll save the history
 
