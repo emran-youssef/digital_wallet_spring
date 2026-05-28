@@ -4,8 +4,8 @@ import com.project.digital_wallet_with_spring.dtos.user.RegisterUserRequest;
 import com.project.digital_wallet_with_spring.dtos.user.UserResponseDto;
 import com.project.digital_wallet_with_spring.entities.User;
 import com.project.digital_wallet_with_spring.entities.Wallet;
-import com.project.digital_wallet_with_spring.exceptions.user.EmailAlreadyExist;
-import com.project.digital_wallet_with_spring.exceptions.user.UserNotFound;
+import com.project.digital_wallet_with_spring.exceptions.user.EmailAlreadyExistException;
+import com.project.digital_wallet_with_spring.exceptions.user.UserNotFoundException;
 import com.project.digital_wallet_with_spring.mappers.UserMapper;
 import com.project.digital_wallet_with_spring.repositories.UserRepository;
 import com.project.digital_wallet_with_spring.repositories.WalletRepository;
@@ -18,19 +18,18 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @Service
 @RequiredArgsConstructor
-
 public class UserServiceImp implements UserService {
 
-    private UserRepository userRepository;
-    private WalletRepository walletRepository;
-    private UserMapper userMapper;
+    private final UserRepository userRepository;
+    private final WalletRepository walletRepository;
+    private final UserMapper userMapper;
 
     @Override
     @Transactional
     public UserResponseDto register(RegisterUserRequest request) {
 
         if(userRepository.existsByEmail(request.getEmail()))
-            throw new EmailAlreadyExist();
+            throw new EmailAlreadyExistException();
 
         var user = User.builder()
                 .username(request.getUsername())
@@ -55,12 +54,12 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserResponseDto getUserByEmail(String email) {
-        return userMapper.toDto(userRepository.findByEmail(email).orElseThrow(UserNotFound::new));
+        return userMapper.toDto(userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new));
     }
 
     @Override
     public UserResponseDto getUserById(Long id) {
-        return userMapper.toDto(userRepository.findById(id).orElseThrow(UserNotFound::new));
+        return userMapper.toDto(userRepository.findById(id).orElseThrow(UserNotFoundException::new));
     }
 
 }

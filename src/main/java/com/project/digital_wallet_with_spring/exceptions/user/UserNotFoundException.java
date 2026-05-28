@@ -1,7 +1,7 @@
 package com.project.digital_wallet_with_spring.exceptions.user;
 
-public class UserNotFound extends RuntimeException {
-    public UserNotFound()
+public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException()
     {
         super("User not found!");
     }

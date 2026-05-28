@@ -1,8 +1,8 @@
 package com.project.digital_wallet_with_spring.exceptions.user;
 
-public class EmailAlreadyExist extends RuntimeException {
+public class EmailAlreadyExistException extends RuntimeException {
 
-    public EmailAlreadyExist()
+    public EmailAlreadyExistException()
     {
         super("Email already exist!");
     }
