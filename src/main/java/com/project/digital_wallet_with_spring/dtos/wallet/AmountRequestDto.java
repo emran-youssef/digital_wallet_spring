@@ -9,10 +9,7 @@ import java.math.BigDecimal;
 @Data
 public class AmountRequestDto {
 
-    @NotNull(message = "walletId is required")
-    private Long walletId;
-
     @NotNull(message = "Amount is required")
     @DecimalMin(value = "0.01", message = "Amount must be greater than 0")
-    BigDecimal amount;
+    private BigDecimal amount;
 }
