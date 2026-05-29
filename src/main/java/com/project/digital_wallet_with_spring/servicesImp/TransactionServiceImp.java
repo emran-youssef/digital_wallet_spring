@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -78,6 +79,70 @@ public class TransactionServiceImp implements TransactionService {
                 .build();
 
         transactionHistoryRepository.saveAll(List.of(senderHistory, receiverHistory));
+
+        return transactionMapper.toDto(transaction);
+    }
+
+    @Override
+    @Transactional
+    public TransactionResponseDto deposit(Long walletId, BigDecimal amount) {
+
+        var wallet = walletRepository.findById(walletId).orElseThrow(WalletNotFoundException::new);
+
+        walletService.deposit(walletId, amount);
+
+        var transaction = Transaction.builder()
+                .amount(amount)
+                .type(TransactionType.DEPOSIT)
+                .status(TransactionStatus.COMPLETED)
+                .receiver(wallet)
+                .createdAt(LocalDateTime.now())
+                .build();
+
+        transactionRepository.save(transaction);
+
+        var history = TransactionHistory.builder()
+                .amount(amount)
+                .type(TransactionType.DEPOSIT)
+                .status(TransactionStatus.COMPLETED)
+                .wallet(wallet)
+                .transaction(transaction)
+                .archivedAt(LocalDateTime.now())
+                .build();
+
+        transactionHistoryRepository.save(history);
+
+        return transactionMapper.toDto(transaction);
+    }
+
+    @Override
+    @Transactional
+    public TransactionResponseDto withdraw(Long walletId, BigDecimal amount) {
+
+        var wallet = walletRepository.findById(walletId).orElseThrow(WalletNotFoundException::new);
+
+        walletService.withdraw(walletId, amount);
+
+        var transaction = Transaction.builder()
+                .amount(amount)
+                .type(TransactionType.WITHDRAW)
+                .status(TransactionStatus.COMPLETED)
+                .sender(wallet)
+                .createdAt(LocalDateTime.now())
+                .build();
+
+        transactionRepository.save(transaction);
+
+        var history = TransactionHistory.builder()
+                .amount(amount)
+                .type(TransactionType.WITHDRAW)
+                .status(TransactionStatus.COMPLETED)
+                .wallet(wallet)
+                .transaction(transaction)
+                .archivedAt(LocalDateTime.now())
+                .build();
+
+        transactionHistoryRepository.save(history);
 
         return transactionMapper.toDto(transaction);
     }

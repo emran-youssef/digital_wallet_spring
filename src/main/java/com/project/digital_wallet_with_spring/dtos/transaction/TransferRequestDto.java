@@ -16,7 +16,7 @@ public class TransferRequestDto {
     private Long receiverWalletId;
 
     @NotNull
-    @DecimalMin("5.00")
+    @DecimalMin(value = "1.00", message = "amount must be greater than or equal to 1.00$")
     private BigDecimal amount;
 
 }

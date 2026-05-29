@@ -10,6 +10,6 @@ import java.math.BigDecimal;
 public class AmountRequestDto {
 
     @NotNull(message = "Amount is required")
-    @DecimalMin(value = "0.01", message = "Amount must be greater than 0")
+    @DecimalMin(value = "1.00", message = "Amount must be greater than 1.00$")
     private BigDecimal amount;
 }

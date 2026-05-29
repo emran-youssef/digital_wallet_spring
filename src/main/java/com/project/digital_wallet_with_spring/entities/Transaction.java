@@ -42,7 +42,7 @@ public class Transaction {
     private Wallet sender;
 
     @ManyToOne
-    @JoinColumn(name = "receiver_wallet_id", nullable = false)
+    @JoinColumn(name = "receiver_wallet_id")
     private Wallet receiver;
 
     @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

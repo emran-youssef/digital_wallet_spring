@@ -16,6 +16,7 @@ public class TransactionHistoryResponseDto {
     private LocalDateTime archivedAt;
     private BigDecimal amount;
     private TransactionType type;
+    private Long receiverId;
     private TransactionStatus status;
     private Long walletId;
     private Long transactionId;

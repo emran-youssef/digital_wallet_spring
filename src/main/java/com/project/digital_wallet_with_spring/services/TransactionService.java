@@ -9,6 +9,8 @@ import java.util.List;
 public interface TransactionService {
 
     TransactionResponseDto transfer(TransferRequestDto requestDto);
+    TransactionResponseDto deposit(Long walletId, BigDecimal amount);
+    TransactionResponseDto withdraw(Long walletId, BigDecimal amount);
     TransactionResponseDto getTransactionById(Long transactionId);
     List<TransactionResponseDto> getTransactionsByWalletId(Long walletId);
 }
