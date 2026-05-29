@@ -24,6 +24,7 @@ public class WalletServiceImp implements WalletService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public BigDecimal getBalance(Long walletId) {
         return getWalletById(walletId).getBalance();
     }
@@ -36,7 +37,6 @@ public class WalletServiceImp implements WalletService {
 
         wallet.setBalance(wallet.getBalance().add(amount));
         wallet.setUpdatedAt(LocalDateTime.now());
-        //later on we'll save the history
         return walletMapper.toDto(walletRepository.save(wallet));
 
     }
@@ -52,12 +52,12 @@ public class WalletServiceImp implements WalletService {
 
         wallet.setBalance(wallet.getBalance().subtract(amount));
         wallet.setUpdatedAt(LocalDateTime.now());
-        //later on we'll save the history
 
         return walletMapper.toDto(walletRepository.save(wallet));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public WalletResponseDto getWalletByUserId(Long userId) {
         return walletMapper.toDto(walletRepository.findByUserId(userId).orElseThrow(WalletNotFoundException::new));
     }
