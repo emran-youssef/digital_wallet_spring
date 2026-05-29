@@ -47,17 +47,21 @@ public class UserServiceImp implements UserService {
                 .user(user)
                 .build();
 
-        walletRepository.save(wallet);
+        var savedWallet = walletRepository.save(wallet);
+        user.setWallet(savedWallet);
+
         return userMapper.toDto(user);
 
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserResponseDto getUserByEmail(String email) {
         return userMapper.toDto(userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserResponseDto getUserById(Long id) {
         return userMapper.toDto(userRepository.findById(id).orElseThrow(UserNotFoundException::new));
     }

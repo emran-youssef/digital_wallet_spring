@@ -46,6 +46,7 @@ public class Transaction {
     private Wallet receiver;
 
     @OneToMany(mappedBy = "transaction", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<TransactionHistory> history = new HashSet<>();
 
 }

@@ -35,12 +35,15 @@ public class Wallet {
     private User user;
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Transaction> sentTransactions = new HashSet<>();
 
     @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Transaction> receivedTransactions = new HashSet<>();
 
     @OneToMany(mappedBy = "wallet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<TransactionHistory> history = new HashSet<>();
 
 

@@ -3,6 +3,7 @@ package com.project.digital_wallet_with_spring.exceptions.GlobalHandler;
 import com.project.digital_wallet_with_spring.dtos.exception.ErrorResponse;
 import com.project.digital_wallet_with_spring.exceptions.transaction.SameWalletTransferException;
 import com.project.digital_wallet_with_spring.exceptions.transaction.TransactionNotFoundException;
+import com.project.digital_wallet_with_spring.exceptions.transactionHistory.HistoryNotFoundException;
 import com.project.digital_wallet_with_spring.exceptions.user.EmailAlreadyExistException;
 import com.project.digital_wallet_with_spring.exceptions.user.UserNotFoundException;
 import com.project.digital_wallet_with_spring.exceptions.wallet.InsufficientBalanceException;
@@ -58,7 +59,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                 ErrorResponse.builder()
                         .timestamp(LocalDateTime.now())
-                        .status(HttpStatus.CONFLICT.value())
+                        .status(HttpStatus.NOT_FOUND.value())
                         .error("User not found")
                         .message(ex.getMessage())
                         .build()
@@ -112,6 +113,20 @@ public class GlobalExceptionHandler {
                         .message(ex.getMessage())
                         .build()
         );
+    }
+
+    @ExceptionHandler(HistoryNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleHistoryNotFound(HistoryNotFoundException ex){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                ErrorResponse.builder()
+                        .timestamp(LocalDateTime.now())
+                        .status(HttpStatus.NOT_FOUND.value())
+                        .error("History not found")
+                        .message(ex.getMessage())
+                        .build()
+
+        );
+
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

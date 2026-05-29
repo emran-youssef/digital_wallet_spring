@@ -14,6 +14,7 @@ public interface TransactionHistoryRepository extends JpaRepository<TransactionH
 
     List<TransactionHistory> findByTransactionId(Long transactionId);
     List<TransactionHistory> findByWalletOrderByArchivedAtDesc(Wallet wallet);
-    List<TransactionHistory> findByWalletAndTypeOrderByArchivedAtDesc(Wallet wallet, TransactionType type);
+    List<TransactionHistory> findByWalletIdAndTypeOrderByArchivedAtDesc(Long walletId, TransactionType type);
+    List<TransactionHistory> findByWalletIdOrderByArchivedAtDesc(Long walletId);
 
 }
