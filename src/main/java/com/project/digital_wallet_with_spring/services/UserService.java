@@ -6,6 +6,6 @@ import com.project.digital_wallet_with_spring.dtos.user.UserResponseDto;
 public interface UserService {
 
     UserResponseDto register(RegisterUserRequest request);
-    UserResponseDto getUserByEmail(String username);
+    UserResponseDto getUserByEmail(String email);
     UserResponseDto getUserById(Long id);
 }
