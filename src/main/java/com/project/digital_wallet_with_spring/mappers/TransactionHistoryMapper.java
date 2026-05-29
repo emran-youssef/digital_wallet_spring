@@ -11,6 +11,7 @@ public interface TransactionHistoryMapper {
     @Mapping(source = "wallet.id", target = "walletId")
     @Mapping(source = "transaction.id", target = "transactionId")
     @Mapping(target = "direction", expression = "java(resolveDirection(history))")
+    @Mapping(target = "receiverId", expression = "java(resolveReceiverId(history))")
     TransactionHistoryResponseDto toDto(TransactionHistory history);
 
 
@@ -27,5 +28,16 @@ public interface TransactionHistoryMapper {
             return "RECEIVED";
 
         return "UNKNOWN";
+    }
+
+    default Long resolveReceiverId(TransactionHistory history){
+
+        // DEPOSIT & TRANSFER: receiver exists, return receiver's wallet id
+        if (history.getTransaction().getReceiver() != null)
+            return history.getTransaction().getReceiver().getId();
+
+        // WITHDRAW: no receiver, return sender's wallet id (the user's own wallet)
+        return history.getTransaction().getSender().getId();
+
     }
 }

@@ -24,10 +24,8 @@ public class TransactionHistoryServiceImp implements TransactionHistoryService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TransactionHistoryResponseDto> getHistoryByEmail(String email) {
-
-        var wallet = walletRepository.findByUser_Email(email).orElseThrow(WalletNotFoundException::new);
-
+    public List<TransactionHistoryResponseDto> getHistoryByWalletOwnerId(Long userId) {
+        var wallet = walletRepository.findByUserId(userId).orElseThrow(WalletNotFoundException::new);
         return transactionHistoryRepository.findByWalletOrderByArchivedAtDesc(wallet)
                 .stream()
                 .map(transactionHistoryMapper::toDto)

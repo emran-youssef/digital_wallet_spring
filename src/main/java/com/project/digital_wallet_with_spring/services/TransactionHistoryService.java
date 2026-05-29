@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface TransactionHistoryService {
 
-    List<TransactionHistoryResponseDto> getHistoryByEmail(String email);
+    List<TransactionHistoryResponseDto> getHistoryByWalletOwnerId(Long userId);
     List<TransactionHistoryResponseDto> getHistoryByWalletId(Long walletId);
     List<TransactionHistoryResponseDto> getHistoryByWalletIdAndType(Long walletId, TransactionType type);
 
