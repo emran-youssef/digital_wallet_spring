@@ -1,5 +1,6 @@
 package com.project.digital_wallet_with_spring.controllers;
 
+import com.project.digital_wallet_with_spring.dtos.user.LoginRequest;
 import com.project.digital_wallet_with_spring.dtos.user.RegisterUserRequest;
 import com.project.digital_wallet_with_spring.dtos.user.UserResponseDto;
 import com.project.digital_wallet_with_spring.services.UserService;
@@ -20,6 +21,11 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<UserResponseDto> register( @Valid @RequestBody RegisterUserRequest request){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.register(request));
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<UserResponseDto> login( @Valid @RequestBody LoginRequest request){
+        return ResponseEntity.status(HttpStatus.OK).body(userService.login(request));
     }
 
     @GetMapping("/email/{email}")
