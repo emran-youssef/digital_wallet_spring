@@ -1,5 +1,6 @@
 package com.project.digital_wallet_with_spring.servicesImp;
 
+import com.project.digital_wallet_with_spring.dtos.jwt.JwtResponse;
 import com.project.digital_wallet_with_spring.dtos.user.LoginRequest;
 import com.project.digital_wallet_with_spring.dtos.user.RegisterUserRequest;
 import com.project.digital_wallet_with_spring.dtos.user.UserResponseDto;
@@ -30,6 +31,7 @@ public class UserServiceImp implements UserService {
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
     @Override
     @Transactional
@@ -62,7 +64,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public UserResponseDto login(LoginRequest request){
+    public JwtResponse login(LoginRequest request){
         authenticationManager.authenticate(
               new UsernamePasswordAuthenticationToken(
                       request.getEmail(),
@@ -70,8 +72,9 @@ public class UserServiceImp implements UserService {
               )
         );
 
-        var user = userRepository.findByEmail(request.getEmail()).orElseThrow(UserNotFoundException::new);
-        return userMapper.toDto(user);
+        var token = jwtService.generateToken(request.getEmail());
+        return JwtResponse.builder().token(token).build();
+
 
     }
 

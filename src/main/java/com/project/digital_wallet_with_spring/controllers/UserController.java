@@ -1,9 +1,11 @@
 package com.project.digital_wallet_with_spring.controllers;
 
+import com.project.digital_wallet_with_spring.dtos.jwt.JwtResponse;
 import com.project.digital_wallet_with_spring.dtos.user.LoginRequest;
 import com.project.digital_wallet_with_spring.dtos.user.RegisterUserRequest;
 import com.project.digital_wallet_with_spring.dtos.user.UserResponseDto;
 import com.project.digital_wallet_with_spring.services.UserService;
+import com.project.digital_wallet_with_spring.servicesImp.JwtService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public ResponseEntity<UserResponseDto> login( @Valid @RequestBody LoginRequest request){
+    public ResponseEntity<JwtResponse> login(@Valid @RequestBody LoginRequest request){
         return ResponseEntity.status(HttpStatus.OK).body(userService.login(request));
     }
 
