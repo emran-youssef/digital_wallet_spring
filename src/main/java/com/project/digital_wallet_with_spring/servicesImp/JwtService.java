@@ -24,3 +24,4 @@ public class JwtService {
                 .compact();
     }
 }
+
