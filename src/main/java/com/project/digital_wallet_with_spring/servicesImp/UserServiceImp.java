@@ -12,6 +12,8 @@ import com.project.digital_wallet_with_spring.mappers.UserMapper;
 import com.project.digital_wallet_with_spring.repositories.UserRepository;
 import com.project.digital_wallet_with_spring.repositories.WalletRepository;
 import com.project.digital_wallet_with_spring.services.UserService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.jpa.repository.query.PreprocessedQuery;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,6 +26,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImp implements UserService {
 
     private final UserRepository userRepository;
@@ -37,8 +40,12 @@ public class UserServiceImp implements UserService {
     @Transactional
     public UserResponseDto register(RegisterUserRequest request) {
 
-        if(userRepository.existsByEmail(request.getEmail()))
-            throw new EmailAlreadyExistException();
+        log.info("Register attempt for email: {}", request.getEmail());
+
+        if(userRepository.existsByEmail(request.getEmail())) {
+            log.info("Register failed - email already exists: {}", request.getEmail());
+            throw new EmailAlreadyExistException(); }
+
 
         var user = User.builder()
                 .username(request.getUsername())
@@ -59,20 +66,21 @@ public class UserServiceImp implements UserService {
         var savedWallet = walletRepository.save(wallet);
         user.setWallet(savedWallet);
 
+        log.info("Registered successfully for email:{}", request.getEmail());
         return userMapper.toDto(user);
-
     }
 
     @Override
     public JwtResponse login(LoginRequest request){
-        authenticationManager.authenticate(
-              new UsernamePasswordAuthenticationToken(
-                      request.getEmail(),
-                      request.getPassword()
-              )
-        );
 
+        log.info("Login attempt for email: {}", request.getEmail());
+        authenticationManager.authenticate
+                (new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
+
+        //generate the token
         var token = jwtService.generateToken(request.getEmail());
+
+        log.info("Login successfully for email: {}", request.getEmail());
         return JwtResponse.builder().token(token).build();
 
 
@@ -81,12 +89,14 @@ public class UserServiceImp implements UserService {
     @Override
     @Transactional(readOnly = true)
     public UserResponseDto getUserByEmail(String email) {
+        log.debug("Fetching user by email: {}", email);
         return userMapper.toDto(userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new));
     }
 
     @Override
     @Transactional(readOnly = true)
     public UserResponseDto getUserById(Long id) {
+        log.debug("Fetching user by id: {}", id);
         return userMapper.toDto(userRepository.findById(id).orElseThrow(UserNotFoundException::new));
     }
 
