@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    status="WARN" means Log4j2 itself will only print its own internal
+    messages if something goes wrong (like a misconfiguration).
+    You won't see Log4j2's own startup noise in your console.
+-->
+<Configuration status="WARN">
+
+    <!--
+        PROPERTIES: reusable variables, like constants in Java.
+        Define once here, reference anywhere below with ${name}.
+        If you want to change the log format or file path,
+        you only change it in one place.
+    -->
+    <Properties>
+        <!-- The format/pattern of every single log line -->
+        <!-- %d = timestamp | [%t] = thread name | %-5level = log level (padded to 5 chars) -->
+        <!-- %logger{36} = the class that called the log | %msg = your message | %n = newline -->
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Property>
+
+        <!-- The path and name of the log file that will be created on disk -->
+        <Property name="LOG_FILE">logs/digital-wallet.log</Property>
+    </Properties>
+
+    <!--
+        APPENDERS: the destinations where logs are sent.
+        Think of each appender as an "output channel".
+        You can have multiple — logs can go to several places at once.
+    -->
+    <Appenders>
+
+        <!--
+            CONSOLE APPENDER: prints logs to your IDE terminal / stdout.
+            This is what you see while running the app locally.
+            target="SYSTEM_OUT" means standard output (not error stream).
+        -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <!-- Use the pattern we defined above -->
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <!--
+            ROLLING FILE APPENDER: writes logs to a file on disk.
+            fileName = the current active log file.
+            filePattern = the name format used when the file is archived/rotated.
+            "Rolling" means it automatically creates a new file on a schedule
+            so one file doesn't grow forever.
+        -->
+        <RollingFile name="FileAppender"
+                     fileName="${LOG_FILE}"
+                     filePattern="logs/digital-wallet-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+
+            <!--
+                POLICIES: define WHEN to roll over (create a new file).
+                TimeBasedTriggeringPolicy interval="1" means roll over every 1 day.
+                So every midnight, the current file is archived and a new one starts.
+            -->
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+
+            <!--
+                How many archived log files to keep before deleting old ones.
+                max="30" = keep the last 30 days of log files, delete anything older.
+            -->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <!--
+        LOGGERS: define WHICH classes/packages get logged and at WHAT level.
+        This is where you control the noise — you can silence noisy libraries
+        while keeping your own code fully visible.
+    -->
+    <Loggers>
+
+        <!--
+            YOUR APPLICATION LOGGER.
+            name = the base package of your project — covers all your classes.
+            level="DEBUG" = show DEBUG, INFO, WARN, ERROR (everything).
+            additivity="false" = don't pass these logs up to the Root logger
+            (prevents duplicate log lines appearing twice).
+        -->
+        <Logger name="com.project.digital_wallet_with_spring" level="DEBUG" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/> <!-- send to terminal -->
+            <AppenderRef ref="FileAppender"/>    <!-- AND send to file -->
+        </Logger>
+
+        <!--
+            SPRING FRAMEWORK LOGGER.
+            Spring internally logs a huge amount of DEBUG messages about beans,
+            HTTP requests, security filters, etc. Setting it to INFO silences
+            that noise so your own logs are easy to find.
+            Only console — Spring's internal logs don't need to be in your file.
+        -->
+        <Logger name="org.springframework" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Logger>
+
+        <!--
+            HIBERNATE SQL LOGGER.
+            Setting this to DEBUG makes Hibernate print every SQL query it runs.
+            Very useful during development to see exactly what queries are
+            hitting your database (SELECT, INSERT, UPDATE, DELETE).
+        -->
+        <Logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <!--
+            ROOT LOGGER: the fallback for anything not matched above.
+            Any library or class not explicitly configured above
+            will use this — INFO level, console only.
+        -->
+        <Root level="INFO">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

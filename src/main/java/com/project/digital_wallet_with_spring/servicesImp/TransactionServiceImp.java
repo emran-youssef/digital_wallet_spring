@@ -16,6 +16,7 @@ import com.project.digital_wallet_with_spring.repositories.WalletRepository;
 import com.project.digital_wallet_with_spring.services.TransactionService;
 import com.project.digital_wallet_with_spring.services.WalletService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class TransactionServiceImp implements TransactionService {
@@ -37,13 +39,49 @@ public class TransactionServiceImp implements TransactionService {
 
     @Override
     @Transactional
+    public TransactionResponseDto deposit(Long walletId, BigDecimal amount) {
+        log.info("Deposit transaction started. walletId={}, amount={}", walletId, amount);
+
+        var wallet = walletRepository.findById(walletId).orElseThrow(WalletNotFoundException::new);
+
+        walletService.deposit(walletId, amount);
+
+        var transaction = Transaction.builder()
+                .amount(amount)
+                .type(TransactionType.DEPOSIT)
+                .status(TransactionStatus.COMPLETED)
+                .receiver(wallet)
+                .createdAt(LocalDateTime.now())
+                .build();
+
+        transactionRepository.save(transaction);
+
+        var history = TransactionHistory.builder()
+                .amount(amount)
+                .type(TransactionType.DEPOSIT)
+                .status(TransactionStatus.COMPLETED)
+                .wallet(wallet)
+                .transaction(transaction)
+                .archivedAt(LocalDateTime.now())
+                .build();
+
+        transactionHistoryRepository.save(history);
+
+        log.info("Deposit transaction completed, transactionId={}, walletId={}", transaction.getId(), walletId);
+        return transactionMapper.toDto(transaction);
+    }
+
+    @Override
+    @Transactional
     public TransactionResponseDto transfer(TransferRequestDto request) {
+        log.info("Transfer started from sender:{} to receiver:{}", request.getSenderWalletId(), request.getReceiverWalletId());
 
         var sender = walletRepository.findById(request.getSenderWalletId()).orElseThrow(WalletNotFoundException::new);
         var receiver = walletRepository.findById(request.getReceiverWalletId()).orElseThrow(WalletNotFoundException::new);
 
-        if(sender.getId().equals(receiver.getId()))
-            throw new SameWalletTransferException();
+        if(sender.getId().equals(receiver.getId())) {
+            log.warn("Transfer rejected, same wallet, walletId:{}", sender.getId());
+            throw new SameWalletTransferException(); }
 
         walletService.withdraw(sender.getId(), request.getAmount());
         walletService.deposit(receiver.getId(), request.getAmount());
@@ -80,44 +118,15 @@ public class TransactionServiceImp implements TransactionService {
 
         transactionHistoryRepository.saveAll(List.of(senderHistory, receiverHistory));
 
-        return transactionMapper.toDto(transaction);
-    }
-
-    @Override
-    @Transactional
-    public TransactionResponseDto deposit(Long walletId, BigDecimal amount) {
-
-        var wallet = walletRepository.findById(walletId).orElseThrow(WalletNotFoundException::new);
-
-        walletService.deposit(walletId, amount);
-
-        var transaction = Transaction.builder()
-                .amount(amount)
-                .type(TransactionType.DEPOSIT)
-                .status(TransactionStatus.COMPLETED)
-                .receiver(wallet)
-                .createdAt(LocalDateTime.now())
-                .build();
-
-        transactionRepository.save(transaction);
-
-        var history = TransactionHistory.builder()
-                .amount(amount)
-                .type(TransactionType.DEPOSIT)
-                .status(TransactionStatus.COMPLETED)
-                .wallet(wallet)
-                .transaction(transaction)
-                .archivedAt(LocalDateTime.now())
-                .build();
-
-        transactionHistoryRepository.save(history);
-
+        log.info("Transfer Completed, transactionId:{}, senderWalletId:{}, receiverWalletId:{}",
+                transaction.getId(), sender.getId(), receiver.getId());
         return transactionMapper.toDto(transaction);
     }
 
     @Override
     @Transactional
     public TransactionResponseDto withdraw(Long walletId, BigDecimal amount) {
+        log.info("Withdrawal transaction started. walletId={}, amount={}", walletId, amount);
 
         var wallet = walletRepository.findById(walletId).orElseThrow(WalletNotFoundException::new);
 
@@ -144,6 +153,8 @@ public class TransactionServiceImp implements TransactionService {
 
         transactionHistoryRepository.save(history);
 
+        log.info("Withdrawal transaction completed. transactionId={}, walletId={}",
+                transaction.getId(), walletId);
         return transactionMapper.toDto(transaction);
     }
 
@@ -151,20 +162,19 @@ public class TransactionServiceImp implements TransactionService {
     @Override
     @Transactional(readOnly = true)
     public TransactionResponseDto getTransactionById(Long transactionId) {
-        var transaction = transactionRepository.findById(transactionId)
-                .orElseThrow(TransactionNotFoundException::new);
 
-        return transactionMapper.toDto(transaction);
+        log.debug("Fetching transaction. transactionId={}", transactionId);
+        return transactionMapper.toDto(transactionRepository.findById(transactionId)
+                .orElseThrow(TransactionNotFoundException::new));
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<TransactionResponseDto> getTransactionsByWalletId(Long walletId) {
-        walletRepository.findById(walletId).orElseThrow(WalletNotFoundException::new);
 
+        log.info("Fetching all transactions for walletId={}", walletId);
+        walletRepository.findById(walletId).orElseThrow(WalletNotFoundException::new);
         return transactionRepository.findByWalletId(walletId)
-                .stream()
-                .map(transactionMapper::toDto)
-                .toList();
+                .stream().map(transactionMapper::toDto).toList();
     }
 }
