@@ -34,7 +34,6 @@ public class GlobalExceptionHandler {
         }
 
         log.warn("Validation failed. errors={}", fieldErrors);
-
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 ErrorResponse.builder()
                         .timestamp(LocalDateTime.now())
