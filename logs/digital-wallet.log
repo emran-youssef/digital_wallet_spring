@@ -1,0 +1,33 @@
+2026-07-08 15:26:41 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 20136 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
+2026-07-08 15:26:41 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-08 15:26:41 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-08 15:26:50 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 10.161 seconds (process running for 12.568)
+2026-07-08 15:31:04 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran5@gmail.com
+2026-07-08 15:31:04 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
+2026-07-08 15:31:04 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
+2026-07-08 15:31:04 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
+2026-07-08 15:31:04 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran5@gmail.com
+2026-07-08 16:17:53 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 20256 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
+2026-07-08 16:17:54 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-08 16:17:54 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-08 16:18:07 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 14.848 seconds (process running for 18.318)
+2026-07-08 17:03:55 [http-nio-8080-exec-2] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran6@gmail.com
+2026-07-08 17:03:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
+2026-07-08 17:03:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
+2026-07-08 17:03:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
+2026-07-08 17:03:56 [http-nio-8080-exec-2] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran6@gmail.com
+2026-07-08 17:11:41 [http-nio-8080-exec-5] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran7@gmail.com
+2026-07-08 17:11:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
+2026-07-08 17:11:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
+2026-07-08 17:11:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
+2026-07-08 17:11:41 [http-nio-8080-exec-5] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran7@gmail.com
+2026-07-08 17:14:54 [http-nio-8080-exec-8] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran8@gmail.com
+2026-07-08 17:14:54 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
+2026-07-08 17:14:54 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
+2026-07-08 17:14:54 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
+2026-07-08 17:14:54 [http-nio-8080-exec-8] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran8@gmail.com
+2026-07-08 17:24:15 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran9@gmail.com
+2026-07-08 17:24:15 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
+2026-07-08 17:24:15 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
+2026-07-08 17:24:15 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
+2026-07-08 17:24:15 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran9@gmail.com

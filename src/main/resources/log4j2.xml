@@ -5,7 +5,7 @@
     messages if something goes wrong (like a misconfiguration).
     You won't see Log4j2's own startup noise in your console.
 -->
-<Configuration status="WARN">
+<Configuration status="DEBUGv">
 
     <!--
         PROPERTIES: reusable variables, like constants in Java.
@@ -68,6 +68,14 @@
             <DefaultRolloverStrategy max="30"/>
         </RollingFile>
 
+        <!--
+              Kafka appender
+          -->
+        <Kafka name="KafkaAppender" topic="wallet-logs">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Property name="bootstrap.servers">localhost:9092</Property>
+        </Kafka>
+
     </Appenders>
 
     <!--
@@ -87,6 +95,7 @@
         <Logger name="com.project.digital_wallet_with_spring" level="DEBUG" additivity="false">
             <AppenderRef ref="ConsoleAppender"/> <!-- send to terminal -->
             <AppenderRef ref="FileAppender"/>    <!-- AND send to file -->
+            <AppenderRef ref="KafkaAppender"/>   <!-- AND send to Kafka -->
         </Logger>
 
         <!--
