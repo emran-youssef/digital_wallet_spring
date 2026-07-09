@@ -17,7 +17,7 @@
         <!-- The format/pattern of every single log line -->
         <!-- %d = timestamp | [%t] = thread name | %-5level = log level (padded to 5 chars) -->
         <!-- %logger{36} = the class that called the log | %msg = your message | %n = newline -->
-        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Property>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n%n</Property>
 
         <!-- The path and name of the log file that will be created on disk -->
         <Property name="LOG_FILE">logs/digital-wallet.log</Property>
