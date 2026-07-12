@@ -1,33 +1,259 @@
-2026-07-08 15:26:41 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 20136 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
-2026-07-08 15:26:41 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
-2026-07-08 15:26:41 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
-2026-07-08 15:26:50 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 10.161 seconds (process running for 12.568)
-2026-07-08 15:31:04 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran5@gmail.com
-2026-07-08 15:31:04 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
-2026-07-08 15:31:04 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
-2026-07-08 15:31:04 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
-2026-07-08 15:31:04 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran5@gmail.com
-2026-07-08 16:17:53 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 20256 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
-2026-07-08 16:17:54 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
-2026-07-08 16:17:54 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
-2026-07-08 16:18:07 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 14.848 seconds (process running for 18.318)
-2026-07-08 17:03:55 [http-nio-8080-exec-2] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran6@gmail.com
-2026-07-08 17:03:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
-2026-07-08 17:03:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
-2026-07-08 17:03:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
-2026-07-08 17:03:56 [http-nio-8080-exec-2] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran6@gmail.com
-2026-07-08 17:11:41 [http-nio-8080-exec-5] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran7@gmail.com
-2026-07-08 17:11:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
-2026-07-08 17:11:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
-2026-07-08 17:11:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
-2026-07-08 17:11:41 [http-nio-8080-exec-5] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran7@gmail.com
-2026-07-08 17:14:54 [http-nio-8080-exec-8] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran8@gmail.com
-2026-07-08 17:14:54 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
-2026-07-08 17:14:54 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
-2026-07-08 17:14:54 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
-2026-07-08 17:14:54 [http-nio-8080-exec-8] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran8@gmail.com
-2026-07-08 17:24:15 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Register attempt for email: anaemran9@gmail.com
-2026-07-08 17:24:15 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id from users u1_0 where u1_0.email=? limit ?
-2026-07-08 17:24:15 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into users (created_at,email,password,username) values (?,?,?,?)
-2026-07-08 17:24:15 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,updated_at,user_id) values (?,?,?,?)
-2026-07-08 17:24:15 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Registered successfully for email:anaemran9@gmail.com
+2026-07-10 16:08:56 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 29616 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
+
+2026-07-10 16:08:57 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+
+2026-07-10 16:08:57 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
+
+2026-07-10 16:09:03 [main] DEBUG com.project.digital_wallet_with_spring.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+
+2026-07-10 16:09:05 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 9.583 seconds (process running for 12.25)
+
+2026-07-10 16:09:46 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 13112 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
+
+2026-07-10 16:09:46 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+
+2026-07-10 16:09:46 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
+
+2026-07-10 16:09:51 [main] DEBUG com.project.digital_wallet_with_spring.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+
+2026-07-10 16:09:53 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 7.782 seconds (process running for 9.766)
+
+2026-07-10 16:25:40 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 25304 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
+
+2026-07-10 16:25:40 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+
+2026-07-10 16:25:40 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
+
+2026-07-10 16:25:46 [main] DEBUG com.project.digital_wallet_with_spring.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+
+2026-07-10 16:25:48 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 8.629 seconds (process running for 11.766)
+
+2026-07-10 16:46:28 [http-nio-8080-exec-3] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Login attempt for email: test@gmail.com
+
+2026-07-10 16:46:30 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 16:46:30 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 16:46:30 [http-nio-8080-exec-3] ERROR com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Unexpected error: Bad credentials
+
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:92)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.performPreCheck(AbstractUserDetailsAuthenticationProvider.java:198)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:159)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183)
+	at com.project.digital_wallet_with_spring.servicesImp.UserServiceImp.login(UserServiceImp.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:715)
+	at com.project.digital_wallet_with_spring.servicesImp.UserServiceImp$$SpringCGLIB$$0.login(<generated>)
+	at com.project.digital_wallet_with_spring.controllers.UserController.login(UserController.java:30)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:235)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:376)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:132)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at com.project.digital_wallet_with_spring.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:37)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-07-10 16:47:01 [http-nio-8080-exec-4] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Login attempt for email: anaemran9@gmail.com
+
+2026-07-10 16:47:01 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 16:47:01 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 16:47:01 [http-nio-8080-exec-4] INFO  com.project.digital_wallet_with_spring.servicesImp.UserServiceImp - Login successfully for email: anaemran9@gmail.com
+
+2026-07-10 16:50:03 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 16:50:03 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 16:50:03 [http-nio-8080-exec-8] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 16:50:04 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 16:50:04 [http-nio-8080-exec-8] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 16:50:50 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 16:50:50 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 16:50:50 [http-nio-8080-exec-7] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 16:50:50 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 16:50:50 [http-nio-8080-exec-7] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 16:50:53 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 16:50:53 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 16:50:53 [http-nio-8080-exec-10] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 16:50:53 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 16:50:53 [http-nio-8080-exec-10] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 16:51:16 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 16:51:16 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 16:51:16 [http-nio-8080-exec-1] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 16:51:16 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 16:51:16 [http-nio-8080-exec-1] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 17:15:09 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Starting DigitalWalletWithSpringApplication using Java 25.0.1 with PID 27032 (C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring\target\classes started by eyatrooz in C:\Users\eyatrooz\OneDrive\Desktop\digital_wallet_with_spring\digital_wallet_with_spring)
+
+2026-07-10 17:15:10 [main] DEBUG com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+
+2026-07-10 17:15:10 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - No active profile set, falling back to 1 default profile: "default"
+
+2026-07-10 17:15:16 [main] DEBUG com.project.digital_wallet_with_spring.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+
+2026-07-10 17:15:18 [main] INFO  com.project.digital_wallet_with_spring.DigitalWalletWithSpringApplication - Started DigitalWalletWithSpringApplication in 8.894 seconds (process running for 11.041)
+
+2026-07-10 17:15:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 17:15:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 17:15:37 [http-nio-8080-exec-3] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 17:15:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 17:15:38 [http-nio-8080-exec-3] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 17:21:02 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 17:21:02 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 17:21:02 [http-nio-8080-exec-5] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 17:21:03 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 17:21:03 [http-nio-8080-exec-5] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 17:29:18 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 17:29:18 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 17:29:18 [http-nio-8080-exec-8] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 17:29:18 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 17:29:18 [http-nio-8080-exec-8] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 17:41:07 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 17:41:07 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 17:41:08 [http-nio-8080-exec-1] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 17:41:08 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 17:41:08 [http-nio-8080-exec-1] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 17:42:36 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 17:42:36 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 17:42:36 [http-nio-8080-exec-2] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 17:42:36 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 17:42:36 [http-nio-8080-exec-2] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
+2026-07-10 17:42:38 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.email,u1_0.password,u1_0.username from users u1_0 where u1_0.email=?
+
+2026-07-10 17:42:38 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.user_id=?
+
+2026-07-10 17:42:38 [http-nio-8080-exec-5] DEBUG com.project.digital_wallet_with_spring.servicesImp.WalletServiceImp - Fetching balance: 99999
+
+2026-07-10 17:42:38 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.created_at,w1_0.updated_at,w1_0.user_id from wallets w1_0 where w1_0.id=?
+
+2026-07-10 17:42:38 [http-nio-8080-exec-5] WARN  com.project.digital_wallet_with_spring.exceptions.GlobalHandler.GlobalExceptionHandler - Wallet not found: Wallet not found!
+
