@@ -57,7 +57,6 @@ public class GlobalExceptionHandler {
                         .message(ex.getMessage())
                         .build()
         );
-
     }
 
     @ExceptionHandler(UserNotFoundException.class)
@@ -88,9 +87,9 @@ public class GlobalExceptionHandler {
         );
     }
 
-
     @ExceptionHandler(InsufficientBalanceException.class)
     public ResponseEntity<ErrorResponse> handleInsufficientBalance(InsufficientBalanceException ex){
+        log.warn("Insufficient balance: {}", ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 ErrorResponse.builder()
                         .timestamp(LocalDateTime.now())
@@ -103,6 +102,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(SameWalletTransferException.class)
     public ResponseEntity<ErrorResponse> handleSameWalletTransfer(SameWalletTransferException ex){
+        log.warn("Same wallet transfer attempt: {}", ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 ErrorResponse.builder()
                         .timestamp(LocalDateTime.now())
@@ -136,9 +136,7 @@ public class GlobalExceptionHandler {
                         .error("History not found")
                         .message(ex.getMessage())
                         .build()
-
         );
-
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
